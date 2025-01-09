@@ -19,7 +19,7 @@ gem 'sprockets-rails'
 gem 'state_machines'
 gem 'state_machines-activerecord'
 gem 'stimulus-rails'
-gem 'tailwindcss-rails', '~> 3.0'
+gem 'tailwindcss-rails', '~> 3.1'
 gem 'turbo-rails'
 gem 'view_component'
 
