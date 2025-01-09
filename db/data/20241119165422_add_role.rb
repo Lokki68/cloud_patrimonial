@@ -3,7 +3,7 @@
 class AddRole < ActiveRecord::Migration[7.2]
   def up
     Role.create name: 'admin'
-    Role.create name: 'sapeur'
+    Role.create name: 'utilisateur'
   end
 
   def down
