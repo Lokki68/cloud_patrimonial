@@ -1,0 +1,6 @@
+.flex.justify-center.py-2{data: {controller: 'hideable'}}
+  - flash.each do |key, value|
+    - classes = { 'notice' => 'bg-green-100 border-green-500 text-green-700', 'alert' => 'bg-red-100 border-red-500 text-red-700'}
+    %div{class: "w-[450px] border-l-2 p-4 rounded-lg #{classes[key]} ", role: 'alert'}
+      %p.font-bold= 'alert'
+      %p= value

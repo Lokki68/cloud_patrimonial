@@ -1,0 +1,13 @@
+%div{class: 'lg:p-36 md:p-52 sm:20 p-8 w-full lg:w-1/2'}
+  %h1.text-2xl.font-semibold.b-4 S'enregistrer
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = f.error_notification
+    .flex.flex-col.gap-5
+      = f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }
+      = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" }
+      = f.input :password_confirmation,required: true,input_html: { autocomplete: "new-password" }
+    .flex.justify-center.mt-4
+      = f.button :submit, "Enregistrer", class: 'bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-500'
+
+  .flex.justify-center.mt-8
+    = render "devise/shared/links"
