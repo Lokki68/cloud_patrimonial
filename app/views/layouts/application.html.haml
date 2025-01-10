@@ -13,12 +13,13 @@
     %link{:href => "/icon.svg", :rel => "icon", :type => "image/svg+xml"}/
     %link{:href => "/icon.png", :rel => "apple-touch-icon"}/
     %link{ rel:"stylesheet", href:"https://use.fontawesome.com/releases/v5.15.4/css/all.css", integrity:"sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm", crossorigin:"anonymous"}
-    = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
-  %body{class: 'flex h-screen bg-gray-50 overflow-hidden'}
-    = render partial: 'shared/sidebar'
-    %main{class: 'h-full flex-1 overflow-y-auto'}
-      = render partial: 'shared/top_header' if current_user
-      = render partial: 'shared/flash'
-      %div{class: 'container grid px-6 mx-auto'}
+  %body.d-flex
+    = render 'shared/sidebar'
+    %main.main-container
+      = render 'shared/top_header' if current_user
+      .container-fluid.py-2.position-relative
         = yield
+        = render 'shared/flash' if flash.any?
+        = turbo_frame_tag 'modal'

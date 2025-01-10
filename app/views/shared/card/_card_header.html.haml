@@ -1,0 +1,11 @@
+.card-header 
+  .d-flex.align-items-center.justify-content-between
+    .d-flex.align-items-center.gap-2
+      - if local_assigns[:collapsible ]
+        %button.btn.btn-outline-secondary.btn-sm{data: {action: 'collapse#toggle', 'collapse-target': 'button'}}
+          %i{class: "fas #{start_collapse_icon}", data: {'collapse-target': 'icon'} } 
+      .col
+        %h1.fs-3.mb-1= title
+        %span.fst-italic= subtitle if local_assigns[:subtitle]
+    - if local_assigns[:header_cta]
+      = yield

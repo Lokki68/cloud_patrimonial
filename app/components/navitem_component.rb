@@ -4,7 +4,7 @@ class NavitemComponent < ViewComponent::Base
   def initialize(path:, title:, active:, icon: '')
     @path = path
     @title = title
-    @active = active && 'menu-active'
+    @active = active && 'active'
     @icon = icon
   end
 end
