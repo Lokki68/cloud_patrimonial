@@ -5,6 +5,7 @@
     %nav.mt-2
       %ul.nav.nav-pills.flex-column.mb-auto
         = render NavitemComponent.new(title: 'dashboard', icon: 'fas fa-tachometer-alt', path: root_path, active: controller_name == 'dashboard')
+        = render NavitemComponent.new(title: 'categories', icon: 'fas fa-list', path: category_index_path, active: controller_name == 'categories')
   .d-flex.flex-column.justify-content-center.align-items-center.gap-2.mt-auto
     - if current_user
       %p= current_user.full_name
