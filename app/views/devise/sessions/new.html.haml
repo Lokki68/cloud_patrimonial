@@ -12,6 +12,6 @@
           .d-flex.flex-column
             = f.label :password
             = f.input :password, required: true, label: false
-        .row.mt-4
+        .row.mt-4.gap-2
           = f.button :submit, "Se connecter", class: 'btn btn-primary btn-sm'
-
+          = link_to 'nouveau compte', new_user_session_path, class: 'btn btn-outline-secondary btn-sm'

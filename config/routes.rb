@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+   # Defines the root path route ("/")
+  root 'dashboard#index'
+ 
   devise_for :users
-
-  get 'dashboard/index'
+get 'dashboard/index'
   get 'up' => 'rails/eachalth#show', as: :rails_health_check
 
   # Render dynamic PWA files from app/views/pwa/*
@@ -11,6 +13,4 @@ Rails.application.routes.draw do
   # Custom routes
   resources :category
 
-  # Defines the root path route ("/")
-  root 'dashboard#index'
 end
