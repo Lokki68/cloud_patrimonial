@@ -1,0 +1,8 @@
+%tr
+  %td= category.name
+  %td= category.description
+  %td= render ColorCellComponent.new( color: category.color )
+  %td
+    .d-flex.justify-content-end.gap-2
+      = render IconButtonComponent.new( title: 'Modifier', path: edit_category_path(category), icon: 'bi bi-pencil' )
+      = render IconButtonComponent.new( title: 'Supprimer', path: category_path(category), icon: 'bi bi-trash text-danger', delete: true )

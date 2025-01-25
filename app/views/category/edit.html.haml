@@ -1,0 +1,6 @@
+.container-fluid
+  .card.my-2
+    = render 'shared/card/card_header', title: 'Edit Category'
+    .card-body
+      = simple_form_for @category, url: category_path(@category), data: {turbo: false} do |f|
+        = render 'form', f: f
