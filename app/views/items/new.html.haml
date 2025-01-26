@@ -1,0 +1,6 @@
+.container-fluid
+  .card.my-2
+    = render 'shared/card/card_header', title: 'Nouvel Item'
+    .card-body
+      = simple_form_for @item, url: items_path, data: {turbo: false} do |f|
+        = render 'form', f: f

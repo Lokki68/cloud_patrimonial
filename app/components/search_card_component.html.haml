@@ -1,0 +1,9 @@
+.card.my-2
+  = render 'shared/card/card_header', title: 'Search'
+  .card-body
+    = simple_form_for @q, url: @search_path, method: :get, html: {class: 'd-flex flex-column'} do |f|
+      = f.input :category_id_eq, as: :select, collection: @categories.map{ |category| [category.name, category.id]}, label: 'Category'
+      = f.input :name_cont, label: 'Name'
+      .d-flex.justify-content-end.gap-2
+        = link_to 'Reset', @search_path, class: 'btn btn-outline-secondary btn-sm ms-2'
+        = f.submit 'Search', class: 'btn btn-primary btn-sm'

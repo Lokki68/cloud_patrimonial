@@ -1,0 +1,18 @@
+.container-fluid
+  = render SearchCardComponent.new(queries: @q, search_path: items_path, categories: @categories)
+  .card.my-2
+    = render 'shared/card/card_header', title: 'Items', header_cta: true do
+      = render IconButtonComponent.new( title: 'Ajouter', path: new_item_path, icon: 'fas fa-plus' )
+    .card_body
+      %table.table.table-striped.table-hover.align-middle
+        %thead
+          %tr
+            %th= sort_link @q, :category_id, 'Category'
+            %th= sort_link @q, :name, 'Name'
+            %th= 'Description'
+            %th= sort_link @q, :value, 'Value'
+            %th= sort_link @q, :buy_at, 'Buy At'
+            %th= 'Quantity'
+            %th.text-end= 'Action'
+        %tbody
+          != render partial: 'item', collection: @items

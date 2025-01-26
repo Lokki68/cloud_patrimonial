@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/activerecord-hackery/ransack.git
+  revision: 2d56e78f860bbceec9f52fa7ec5a0cce6bb0702b
+  branch: main
+  specs:
+    ransack (4.2.1)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -415,6 +425,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 8.0.0)
+  ransack!
   rubocop-rails-omakase
   sassc-rails
   simple_form

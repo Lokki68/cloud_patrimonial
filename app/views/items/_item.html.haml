@@ -1,0 +1,13 @@
+%tr
+  %td
+    = render Table::CategoryCellComponent.new(category_id: item.category_id)
+  %td= item.name
+  %td= item.description
+  %td= item.value
+  %td= item.buy_at
+  %td= item.quantity
+  %td
+    .d-flex.justify-content-end.gap-2
+      = render IconButtonComponent.new( title: 'Modifier', path: edit_item_path(item), icon: 'bi bi-pencil' )
+      = render IconButtonComponent.new( title: 'Supprimer', path: item_path(item), icon: 'bi bi-trash text-danger', delete: true )
+
