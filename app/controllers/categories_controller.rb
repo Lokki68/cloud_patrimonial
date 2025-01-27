@@ -1,4 +1,4 @@
-class CategoryController < ApplicationController
+class CategoriesController < ApplicationController
   before_action :find_model, except: %w[index new create]
 
   def index
@@ -14,7 +14,7 @@ class CategoryController < ApplicationController
 
     if @category.save
       flash[:success] = 'Catégorie enregistré avec succès'
-      redirect_to category_index_path
+      redirect_to categories_path
     else
       render :new
     end
@@ -26,7 +26,7 @@ class CategoryController < ApplicationController
     @category.update(permit_params)
     if @category.save
       flash[:success] = 'Catégorie modifié avec succès'
-      redirect_to category_index_path
+      redirect_to categories_path
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class CategoryController < ApplicationController
     return unless @category.destroy
 
     flash[:success] = 'Catégorie supprimé avec succès'
-    redirect_to category_index_path
+    redirect_to categories_path
   end
 
   private
