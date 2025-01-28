@@ -3,8 +3,8 @@
 class ItemDocument < ApplicationRecord
   belogs_to :item
 
-  has_one_attached :document
+  has_one_attached :invoice_pdf
 
   validates :item_id, numericality: true
-  validates :document, presence: true
+  validates :invoice_pdf, presence: true
 end
