@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ItemDocument < ApplicationRecord
-  belogs_to :item
+  belongs_to :item
 
   has_one_attached :invoice_pdf
 
