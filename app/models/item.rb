@@ -5,7 +5,10 @@ class Item < ApplicationRecord
   belongs_to :category
 
   has_many :item_documents, dependent: :destroy
+  accepts_nested_attributes_for :item_documents, allow_destroy: true
+
   has_many :item_images, dependent: :destroy
+  accepts_nested_attributes_for :item_images, allow_destroy: true
 
   validates :name, presence: true
   validates :description, presence: true

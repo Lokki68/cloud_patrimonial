@@ -5,6 +5,5 @@ class ItemDocument < ApplicationRecord
 
   has_one_attached :invoice_pdf
 
-  validates :item_id, numericality: true
   validates :invoice_pdf, presence: true
 end
