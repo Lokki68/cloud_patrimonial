@@ -1,0 +1,17 @@
+.container-fluid
+  .card.my-2
+    = render 'shared/card/card_header', title: @item.name, header_cta: true do
+      .d-flex.justify-content-end.gap-2
+        = render IconButtonComponent.new( title: 'Modifier', path: edit_item_path(@item), icon: 'fas fa-edit' )
+        = render IconButtonComponent.new( title: 'Supprimer', path: item_path(@item), icon: 'fas fa-trash text-danger', delete: true )
+    .card_body.p-2
+      %p= @item.description
+  .card.my-2
+    = render 'shared/card/card_header', title: 'Facture'
+    .card_body.p-2
+      %ul
+        - @item.item_documents.each do |document|
+          %li
+            %a{ href: url_for(document.invoice_pdf), target: "_blank" } Voir le fichier pdf
+
+

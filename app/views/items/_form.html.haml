@@ -4,6 +4,10 @@
 = f.input :buy_at, as: :date, html5: true
 = f.input :value
 = f.input :quantity, input_html: {min: 1}
+
+= f.fields_for :item_documents, data: {turbo: false} do |form|
+  = render 'shared/form/document_input', f: form
+
 .d-flex.justify-content-end.gap-2
   = link_to 'Annuler', items_path, class: 'btn btn-outline-secondary btn-sm'
   = f.submit 'Enregistrer', class: 'btn btn-primary btn-sm'

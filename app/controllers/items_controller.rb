@@ -2,21 +2,24 @@
 
 class ItemsController < ApplicationController
   before_action :find_variable, only: %i[index new create edit update]
-  before_action :find_item, only: %i[edit update destroy]
+  before_action :find_item, only: %i[show edit update destroy]
 
   def index
     @q = Item.ransack(params[:q])
     @items = @q.result(distinct: true).where(user_id: current_user.id)
   end
 
+  def show; end
+
   def new
     @item = Item.new
+    @item.item_documents.build
   end
 
   def edit; end
 
   def create
-    @item = Item.new(item_params)
+    @item = Item.new(permit_params)
     @item.user_id = current_user.id
 
     if @item.save
@@ -29,7 +32,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item.update(item_params)
+    @item.update(permit_params)
 
     if @item.save
       flash[:notice] = 'Item updated successfully'
@@ -48,8 +51,12 @@ class ItemsController < ApplicationController
 
   private
 
-  def item_params
-    params.require(:item).permit(:name, :description, :buy_at, :value, :quantity, :category_id)
+  def permit_params
+    params.require(:item).permit(
+      %i[name description buy_at value quantity category_id item_documents],
+      item_documents_attributes: %i[id invoice_pdf _destroy],
+      item_images_attributes: %i[_destroy]
+    )
   end
 
   def find_item

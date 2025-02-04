@@ -1,7 +1,8 @@
 %tr
   %td
     = render Table::CategoryCellComponent.new(category_id: item.category_id)
-  %td= item.name
+  %td
+    = render Table::NavigationCellComponent.new(title: item.name, path: item_path(item))
   %td= item.description
   %td= item.value
   %td= item.buy_at
