@@ -1,0 +1,4 @@
+.d-flex.align-items-center.justify-content-between.border-bottom.p-2.nested-fields
+  .d-flex.align-items-center.gap-3
+    = f.input :image, as: :file, input_html: {accept: 'image/*'}
+  = link_to_remove_association 'delete' , f, class: 'btn btn-outline-danger btn-sm'

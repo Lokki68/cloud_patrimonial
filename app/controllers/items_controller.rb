@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.item_documents.build
+    @item.item_images.build
   end
 
   def edit; end
@@ -55,7 +56,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(
       %i[name description buy_at value quantity category_id item_documents],
       item_documents_attributes: %i[id invoice_pdf _destroy],
-      item_images_attributes: %i[_destroy]
+      item_images_attributes: %i[id image _destroy]
     )
   end
 

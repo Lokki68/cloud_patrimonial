@@ -8,6 +8,13 @@
 = f.fields_for :item_documents, data: {turbo: false} do |form|
   = render 'shared/form/document_input', f: form
 
+#item_images
+  = f.fields_for :item_images, data: {turbo: false} do |form|
+    = render 'item_image_fields', f: form
+  .links
+    = link_to_add_association 'Ajouter une image', f, :item_images, class: 'btn btn-outline-primary btn-sm'
+
+
 .d-flex.justify-content-end.gap-2
   = link_to 'Annuler', items_path, class: 'btn btn-outline-secondary btn-sm'
   = f.submit 'Enregistrer', class: 'btn btn-primary btn-sm'
